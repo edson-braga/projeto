@@ -11,6 +11,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,7 +42,7 @@ public class XmlRestApiController implements RestApiController {
 
 	@Override
 	@RequestMapping(value = "/pedido/numeroControle/{id}", method = RequestMethod.GET, produces={MediaType.APPLICATION_XML_VALUE},headers = "Accept=application/xml")
-	public ResponseEntity<?> listarPorNumeroControle(long id) {
+	public ResponseEntity<?> listarPorNumeroControle(@PathVariable("id") long id) {
 		logger.info("Localizando pedidos pelo número de controle", id);
 		Pedido pedido = pedidoService.listarPedido(id);
 		if(pedido == null) {
@@ -52,7 +54,7 @@ public class XmlRestApiController implements RestApiController {
 
 	@Override
 	@RequestMapping(value = "/pedido/cliente/{idCliente}", method = RequestMethod.GET, produces={MediaType.APPLICATION_XML_VALUE},headers = "Accept=application/xml")
-	public ResponseEntity<List<Pedido>> listarPorCliente(long idCliente) {
+	public ResponseEntity<List<Pedido>> listarPorCliente(@PathVariable("idCliente") long idCliente) {
 		List<Pedido> pedidos = pedidoService.listarTodosPorCliente(idCliente);
 		if(pedidos.isEmpty()) {
 			return new ResponseEntity<List<Pedido>>(HttpStatus.NO_CONTENT);
@@ -62,7 +64,7 @@ public class XmlRestApiController implements RestApiController {
 
 	@Override
 	@RequestMapping(value = "/pedido/dataCadastro/{data}", method = RequestMethod.GET, produces={MediaType.APPLICATION_XML_VALUE},headers = "Accept=application/xml")
-	public ResponseEntity<List<Pedido>> listarPorDataCadastro(String dataCadastro) {
+	public ResponseEntity<List<Pedido>> listarPorDataCadastro(@PathVariable("data") String dataCadastro) {
 		SimpleDateFormat format = new SimpleDateFormat("dd-M-yyyy");
 		List<Pedido> pedidos = null;
 		try {
@@ -78,7 +80,7 @@ public class XmlRestApiController implements RestApiController {
 
 	@Override
 	@RequestMapping(value = "/pedido/", method = RequestMethod.POST)
-	public ResponseEntity<?> criarPedido(Pedido pedido, UriComponentsBuilder uriComponentsBuilder) {
+	public ResponseEntity<?> criarPedido(@RequestBody Pedido pedido, UriComponentsBuilder uriComponentsBuilder) {
 		logger.info("Criando o pedido: {}", pedido);
 		
 		if(pedidoService.pedidoExiste(pedido.getNumeroControle())) {
