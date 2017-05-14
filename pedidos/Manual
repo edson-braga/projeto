@@ -31,7 +31,7 @@ GET – Consulta por cliente: http://localhost:8080/api/xml/pedido/pedido/client
 GET – Consulta todos: http://localhost:8080/api/xml/pedido/pedido/
 POST – Cadastro: http://localhost:8080/api/xml/pedido/pedido/
 Para cadastro utilizar o template abaixo
-    <item>
+    <Pedido>
         <numeroControle>15</numeroControle>
         <dataCadastro>2017-05-01</dataCadastro>
         <nomeProduto>Laptop</nomeProduto>
@@ -40,6 +40,6 @@ Para cadastro utilizar o template abaixo
         <codigoCliente>
             <id>1</id>
         </codigoCliente>
-    </item>
+    </Pedido>
 
 OBS: Foi utilizado o client Postman para testar as funcionalidades
