@@ -1,0 +1,251 @@
+CREATE SCHEMA `loja` ;
+
+CREATE TABLE `lojas`.`pedidos` (
+  `numeroControle` INT NOT NULL,
+  `dataCadastro` DATETIME NOT NULL,
+  `nomeProduto` VARCHAR(255) NOT NULL,
+  `valorUnitario` DECIMAL NOT NULL,
+  `quantidade` INT NOT NULL,
+  `codigoCliente` INT NOT NULL,
+  `valorTotal` DECIMAL NOT NULL,
+  PRIMARY KEY (`numeroControle`));
+
+CREATE TABLE `lojas`.`clientes` (
+  `idCliente` INT NOT NULL,
+  `nomeCliente` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`idCliente`));
+
+
+INSERT INTO `loja`.`clientes`
+(`idCliente`,
+`nomeCliente`)
+VALUES
+(1, 'Ana'
+);
+INSERT INTO `loja`.`clientes`
+(`idCliente`,
+`nomeCliente`)
+VALUES
+(1, 'Luana'
+);
+INSERT INTO `loja`.`clientes`
+(`idCliente`,
+`nomeCliente`)
+VALUES
+(1, 'Renan'
+);
+INSERT INTO `loja`.`clientes`
+(`idCliente`,
+`nomeCliente`)
+VALUES
+(1, 'Cinthia'
+);
+INSERT INTO `loja`.`clientes`
+(`idCliente`,
+`nomeCliente`)
+VALUES
+(1, 'Roberto'
+);
+INSERT INTO `loja`.`clientes`
+(`idCliente`,
+`nomeCliente`)
+VALUES
+(1, 'Lilian'
+);
+INSERT INTO `loja`.`clientes`
+(`idCliente`,
+`nomeCliente`)
+VALUES
+(1, 'Moises'
+);
+INSERT INTO `loja`.`clientes`
+(`idCliente`,
+`nomeCliente`)
+VALUES
+(1, 'Julia'
+);
+INSERT INTO `loja`.`clientes`
+(`idCliente`,
+`nomeCliente`)
+VALUES
+(1, 'Marcos'
+);
+INSERT INTO `loja`.`clientes`
+(`idCliente`,
+`nomeCliente`)
+VALUES
+(1, 'Paula'
+);
+INSERT INTO `loja`.`clientes`
+(`idCliente`,
+`nomeCliente`)
+VALUES
+(1, 'Gabriel'
+);
+
+INSERT INTO `loja`.`pedidos`
+(`numeroControle`,
+`dataCadastro`,
+`nomeProduto`,
+`valorUnitario`,
+`quantidade`,
+`codigoCliente`,
+`valorTotal`)
+VALUES
+(1,
+'2017-05-03',
+'Smartphone',
+3500,
+6,
+1,
+0);
+INSERT INTO `loja`.`pedidos`
+(`numeroControle`,
+`dataCadastro`,
+`nomeProduto`,
+`valorUnitario`,
+`quantidade`,
+`codigoCliente`,
+`valorTotal`)
+VALUES
+(2,
+'2017-05-03',
+'Smartphone',
+1520,
+1,2,
+0);
+INSERT INTO `loja`.`pedidos`
+(`numeroControle`,
+`dataCadastro`,
+`nomeProduto`,
+`valorUnitario`,
+`quantidade`,
+`codigoCliente`,
+`valorTotal`)
+VALUES
+(3,
+'2017-05-03',
+'Capa de smartphone',
+120,
+5,
+3,
+0);
+
+INSERT INTO `loja`.`pedidos`
+(`numeroControle`,
+`dataCadastro`,
+`nomeProduto`,
+`valorUnitario`,
+`quantidade`,
+`codigoCliente`,
+`valorTotal`)
+VALUES
+(4,
+'2017-05-03',
+'Pneu',
+20,
+8,
+4,
+0);
+
+INSERT INTO `loja`.`pedidos`
+(`numeroControle`,
+`dataCadastro`,
+`nomeProduto`,
+`valorUnitario`,
+`quantidade`,
+`codigoCliente`,
+`valorTotal`)
+VALUES
+(5,
+'2017-05-03',
+'Camera',
+520,
+2,
+5,
+0);
+
+INSERT INTO `loja`.`pedidos`
+(`numeroControle`,
+`dataCadastro`,
+`nomeProduto`,
+`valorUnitario`,
+`quantidade`,
+`codigoCliente`,
+`valorTotal`)
+VALUES
+(6,
+'2017-10-03',
+'Livro',
+152,
+3,
+6,
+0);
+
+INSERT INTO `loja`.`pedidos`
+(`numeroControle`,
+`dataCadastro`,
+`nomeProduto`,
+`valorUnitario`,
+`quantidade`,
+`codigoCliente`,
+`valorTotal`)
+VALUES
+(7,
+'2017-02-03',
+'Carregador',
+158,
+15,
+7,
+0);
+
+INSERT INTO `loja`.`pedidos`
+(`numeroControle`,
+`dataCadastro`,
+`nomeProduto`,
+`valorUnitario`,
+`quantidade`,
+`codigoCliente`,
+`valorTotal`)
+VALUES
+(8,
+'2017-05-01',
+'Laptop',
+4532,
+1,
+8,
+0);
+
+INSERT INTO `loja`.`pedidos`
+(`numeroControle`,
+`dataCadastro`,
+`nomeProduto`,
+`valorUnitario`,
+`quantidade`,
+`codigoCliente`,
+`valorTotal`)
+VALUES
+(9,
+'2017-04-03',
+'Laptop',
+4522,
+3,
+9,
+0);
+
+INSERT INTO `loja`.`pedidos`
+(`numeroControle`,
+`dataCadastro`,
+`nomeProduto`,
+`valorUnitario`,
+`quantidade`,
+`codigoCliente`,
+`valorTotal`)
+VALUES
+(10,
+'2017-03-03',
+'Headphone',
+323,
+8,
+10,
+0);
