@@ -1,6 +1,7 @@
 package br.com.braga.pedidos.controller;
 
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -62,10 +63,16 @@ public class JsonRestApiController implements RestApiController {
 	
 	@Override
 	@RequestMapping(value = "/pedido/dataCadastro/{data}", method = RequestMethod.GET)
-	public ResponseEntity<List<Pedido>> listarPorDataCadastro(@PathVariable("data") Date dataCadastro) {
-		List<Pedido> pedidos = pedidoService.listarTodosPorDataCadastro(dataCadastro);
-		if(pedidos.isEmpty()) {
-			   return new ResponseEntity<List<Pedido>>(HttpStatus.NO_CONTENT);
+	public ResponseEntity<List<Pedido>> listarPorDataCadastro(@PathVariable("data") String dataCadastro) {
+		SimpleDateFormat format = new SimpleDateFormat("dd-M-yyyy");
+		List<Pedido> pedidos = null;
+		try {
+			pedidos = pedidoService.listarTodosPorDataCadastro(format.parse(dataCadastro));
+			if(pedidos.isEmpty()) {
+				return new ResponseEntity<List<Pedido>>(HttpStatus.NO_CONTENT);
+			}
+		} catch (ParseException e) {
+			return new ResponseEntity<List<Pedido>>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return new ResponseEntity<List<Pedido>>(pedidos, HttpStatus.OK);
 	}

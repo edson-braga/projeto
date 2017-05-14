@@ -1,6 +1,5 @@
 package br.com.braga.pedidos.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -16,7 +15,7 @@ public interface RestApiController {
 
 	ResponseEntity<List<Pedido>> listarPorCliente(long idCliente);
 
-	ResponseEntity<List<Pedido>> listarPorDataCadastro(Date dataCadastro);
+	ResponseEntity<List<Pedido>> listarPorDataCadastro(String dataCadastro);
 
 	ResponseEntity<?> criarPedido(Pedido pedido, UriComponentsBuilder uriComponentsBuilder);
 
