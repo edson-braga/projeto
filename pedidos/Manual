@@ -1,0 +1,45 @@
+Repositório: https://github.com/edson-braga/projeto.git
+
+Através do prompt de comando, navegar até a pasta do projeto onde se encontra o arquivo pom.xml e executar o comando abaixo
+
+mvn spring-boot:run
+
+Em um client Rest colar as seguintes urls para testar o retorno
+
+Na consulta por data utilizar o padrão: dd-mm-aaaa
+GET – Consulta por data: http://localhost:8080/api/json/pedido/dataCadastro/03-05-2017
+GET – Consulta por numero de controle: http://localhost:8080/api/json/pedido/numeroControle/1
+GET – Consulta por cliente: http://localhost:8080/api/json/pedido/pedido/cliente/1
+GET – Consulta todos: http://localhost:8080/api/json/pedido/pedido/
+POST – Cadastro:http://localhost:8080/api/json/pedido/pedido/
+Para cadastro utilizar o template abaixo
+{
+    "numeroControle": 1,
+    "dataCadastro": "2017-05-01",
+    "nomeProduto": "Laptop",
+    "valorUnitario": 15000,
+    "quantidade": 1,
+    "codigoCliente": {
+      "id": 1
+    }
+  }
+
+Na consulta por data utilizar o padrão: dd-mm-aaaa
+GET – Consulta por data: http://localhost:8080/api/xml/pedido/dataCadastro/03-05-2017
+GET – Consulta por numero de controle: http://localhost:8080/api/xml/pedido/numeroControle/1
+GET – Consulta por cliente: http://localhost:8080/api/xml/pedido/pedido/cliente/1
+GET – Consulta todos: http://localhost:8080/api/xml/pedido/pedido/
+POST – Cadastro: http://localhost:8080/api/xml/pedido/pedido/
+Para cadastro utilizar o template abaixo
+    <item>
+        <numeroControle>15</numeroControle>
+        <dataCadastro>2017-05-01</dataCadastro>
+        <nomeProduto>Laptop</nomeProduto>
+        <valorUnitario>15000.0</valorUnitario>
+        <quantidade>1</quantidade>
+        <codigoCliente>
+            <id>1</id>
+        </codigoCliente>
+    </item>
+
+OBS: Foi utilizado o client Postman para testar as funcionalidades
